@@ -5,14 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <meta name="theme-color" content="#c9141d" />
+
   <meta
     name="description"
-    content="Optik Amira — Your Vision, Our Priority. Temukan Instagram, WhatsApp, dan lokasi Optik Amira."
+    content="Optik Amira — Your Vision, Our Priority. Temukan Instagram, WhatsApp, survey, review, dan lokasi Optik Amira."
   />
 
   <title>Optik Amira — Your Vision, Our Priority</title>
 
   <style>
+    /* =========================================================
+       ROOT / VARIABLES
+    ========================================================= */
+
     :root {
       --red: #c9141d;
       --red-dark: #a70e16;
@@ -20,13 +25,26 @@
 
       --black: #171717;
       --gray: #6b6b6b;
+      --gray-medium: #858585;
       --gray-light: #f5f5f5;
+      --gray-border: rgba(0, 0, 0, .07);
 
       --white: #ffffff;
 
       --radius-lg: 24px;
       --radius-md: 18px;
+
+      --shadow-card:
+        0 8px 25px rgba(0, 0, 0, .055);
+
+      --shadow-card-hover:
+        0 15px 35px rgba(0, 0, 0, .09);
     }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -38,8 +56,14 @@
       scroll-behavior: smooth;
     }
 
+
+    /* =========================================================
+       BODY
+    ========================================================= */
+
     body {
       min-height: 100vh;
+
       font-family:
         Inter,
         -apple-system,
@@ -55,7 +79,7 @@
       background:
         radial-gradient(
           circle at 50% -10%,
-          rgba(201, 20, 29, 0.16),
+          rgba(201, 20, 29, .16),
           transparent 35%
         ),
         linear-gradient(
@@ -68,24 +92,27 @@
 
     body::before {
       content: "";
+
       position: fixed;
       inset: 0;
+
       pointer-events: none;
 
       background:
         linear-gradient(
           120deg,
           transparent 0%,
-          rgba(255,255,255,.4) 50%,
+          rgba(255, 255, 255, .4) 50%,
           transparent 100%
         );
 
       opacity: .5;
     }
 
-    /* =========================
-       MAIN CONTAINER
-    ========================= */
+
+    /* =========================================================
+       MAIN PAGE
+    ========================================================= */
 
     .page {
       position: relative;
@@ -102,9 +129,10 @@
       align-items: center;
     }
 
-    /* =========================
+
+    /* =========================================================
        PROFILE
-    ========================= */
+    ========================================================= */
 
     .profile {
       display: flex;
@@ -130,13 +158,13 @@
 
       border-radius: 50%;
 
-      background: rgba(255,255,255,.92);
+      background: rgba(255, 255, 255, .92);
 
-      border: 1px solid rgba(0,0,0,.06);
+      border: 1px solid rgba(0, 0, 0, .06);
 
       box-shadow:
-        0 18px 50px rgba(0,0,0,.10),
-        0 4px 12px rgba(201,20,29,.08);
+        0 18px 50px rgba(0, 0, 0, .10),
+        0 4px 12px rgba(201, 20, 29, .08);
 
       overflow: hidden;
     }
@@ -149,7 +177,7 @@
 
       border-radius: 50%;
 
-      border: 1px solid rgba(201,20,29,.12);
+      border: 1px solid rgba(201, 20, 29, .12);
 
       pointer-events: none;
     }
@@ -187,9 +215,10 @@
       color: var(--gray);
     }
 
-    /* =========================
+
+    /* =========================================================
        VERIFIED BADGE
-    ========================= */
+    ========================================================= */
 
     .verified {
       display: inline-flex;
@@ -229,9 +258,10 @@
       font-size: 9px;
     }
 
-    /* =========================
-       LINKS
-    ========================= */
+
+    /* =========================================================
+       LINKS CONTAINER
+    ========================================================= */
 
     .links {
       width: 100%;
@@ -242,11 +272,15 @@
       gap: 13px;
     }
 
+
+    /* =========================================================
+       UNIVERSAL LINK CARD
+    ========================================================= */
+
     .link-card {
       position: relative;
 
       min-height: 68px;
-
       width: 100%;
 
       display: flex;
@@ -258,14 +292,13 @@
 
       color: var(--black);
 
-      background: rgba(255,255,255,.90);
+      background: rgba(255, 255, 255, .90);
 
-      border: 1px solid rgba(0,0,0,.07);
+      border: 1px solid var(--gray-border);
 
       border-radius: var(--radius-md);
 
-      box-shadow:
-        0 8px 25px rgba(0,0,0,.055);
+      box-shadow: var(--shadow-card);
 
       transition:
         transform .2s ease,
@@ -280,6 +313,7 @@
       content: "";
 
       position: absolute;
+
       left: 0;
       top: 0;
       bottom: 0;
@@ -294,10 +328,9 @@
     .link-card:hover {
       transform: translateY(-3px);
 
-      border-color: rgba(201,20,29,.18);
+      border-color: rgba(201, 20, 29, .18);
 
-      box-shadow:
-        0 15px 35px rgba(0,0,0,.09);
+      box-shadow: var(--shadow-card-hover);
     }
 
     .link-card:hover::before {
@@ -308,9 +341,10 @@
       transform: scale(.985);
     }
 
-    /* =========================
+
+    /* =========================================================
        ICON
-    ========================= */
+    ========================================================= */
 
     .icon-box {
       width: 44px;
@@ -352,9 +386,10 @@
       stroke-linejoin: round;
     }
 
-    /* =========================
-       TEXT
-    ========================= */
+
+    /* =========================================================
+       LINK TEXT
+    ========================================================= */
 
     .link-content {
       flex: 1;
@@ -378,10 +413,15 @@
 
       font-size: 11px;
 
-      color: #858585;
+      color: var(--gray-medium);
 
       line-height: 1.3;
     }
+
+
+    /* =========================================================
+       ARROW
+    ========================================================= */
 
     .arrow {
       width: 30px;
@@ -400,6 +440,7 @@
 
     .link-card:hover .arrow {
       transform: translateX(3px);
+
       color: var(--red);
     }
 
@@ -417,86 +458,214 @@
       stroke-linejoin: round;
     }
 
-    /* =========================
-       WHATSAPP PRIMARY
-    ========================= */
+
+    /* =========================================================
+       WHATSAPP
+       SAME STYLE AS OTHER CARDS
+    ========================================================= */
 
     .link-card.primary {
-      color: white;
+      color: var(--black);
 
-      background:
-        linear-gradient(
-          135deg,
-          #8df058 0%,
-          #047417 100%
-        );
+      background: rgba(255, 255, 255, .90);
 
-      border-color: transparent;
+      border: 1px solid var(--gray-border);
 
-      box-shadow:
-        0 12px 30px rgba(201,20,29,.22);
+      box-shadow: var(--shadow-card);
     }
 
     .link-card.primary:hover {
-      background:
-        linear-gradient(
-          135deg,
-          #e01b25 0%,
-          #a90d15 100%
-        );
+      background: rgba(255, 255, 255, .95);
 
-      border-color: transparent;
+      border-color: rgba(201, 20, 29, .18);
 
-      box-shadow:
-        0 18px 38px rgba(201,20,29,.30);
+      box-shadow: var(--shadow-card-hover);
     }
 
     .link-card.primary::before {
-      display: none;
+      display: block;
     }
 
     .link-card.primary .icon-box {
-      background: rgba(255,255,255,.16);
-      color: white;
+      background: var(--gray-light);
+
+      color: var(--black);
     }
 
     .link-card.primary:hover .icon-box {
-      background: rgba(255,255,255,.20);
-      color: white;
+      background: var(--red-soft);
+
+      color: var(--red);
     }
 
     .link-card.primary .link-description {
-      color: rgba(255,255,255,.72);
+      color: var(--gray-medium);
     }
 
     .link-card.primary .arrow {
-      color: rgba(255,255,255,.75);
+      color: #a0a0a0;
     }
 
     .link-card.primary:hover .arrow {
-      color: white;
+      color: var(--red);
     }
 
+
+    /* =========================================================
+       GOOGLE REVIEW
+       SAME STYLE AS OTHER CARDS
+    ========================================================= */
+
+    .review-card {
+      border-color: var(--gray-border);
+    }
+
+    .review-card .icon-box {
+      background: var(--gray-light);
+
+      color: var(--black);
+    }
+
+    .review-card:hover .icon-box {
+      background: var(--red-soft);
+
+      color: var(--red);
+    }
+
+
+    /* =========================================================
+       SURVEY
+       SAME STYLE AS OTHER CARDS
+    ========================================================= */
+
+    .survey-card {
+      border-color: var(--gray-border);
+    }
+
+    .survey-card .icon-box {
+      background: var(--gray-light);
+
+      color: var(--black);
+    }
+
+    .survey-card:hover .icon-box {
+      background: var(--red-soft);
+
+      color: var(--red);
+    }
     /* =========================
-   GOOGLE REVIEW
+   PARTNERS / SERVICES
 ========================= */
 
-.review-card {
-  border-color: rgba(201, 20, 29, .10);
+.partners {
+  width: 100%;
+  margin-top: 28px;
+  padding: 22px 18px;
+
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+
+  background: rgba(255,255,255,.72);
+
+  border: 1px solid rgba(0,0,0,.06);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.04);
 }
 
-.review-card .icon-box {
-  background: #fff8df;
-  color: #d6a500;
+.partners-label {
+  margin-bottom: 18px;
+
+  color: var(--red);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.1px;
 }
 
-.review-card:hover .icon-box {
-  background: #fff3c4;
-  color: #c49300;
+.partner-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
-    /* =========================
+
+.partner {
+  min-height: 105px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 8px;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.9);
+
+  border: 1px solid rgba(0,0,0,.06);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.partner:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.07);
+}
+
+.partner img {
+  width: 100%;
+  height: 45px;
+
+  object-fit: contain;
+
+  margin-bottom: 9px;
+}
+
+.partner-name {
+  font-size: 10px;
+  font-weight: 700;
+
+  color: var(--black);
+
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+
+  .partners {
+    padding: 20px 12px;
+  }
+
+  .partner-list {
+    gap: 8px;
+  }
+
+  .partner {
+    min-height: 95px;
+    padding: 10px 5px;
+  }
+
+  .partner img {
+    height: 38px;
+  }
+
+  .partner-name {
+    font-size: 9px;
+  }
+}
+
+    /* =========================================================
        LOCATION
-    ========================= */
+    ========================================================= */
 
     .location {
       width: 100%;
@@ -509,12 +678,12 @@
 
       border-radius: var(--radius-lg);
 
-      background: rgba(255,255,255,.72);
+      background: rgba(255, 255, 255, .72);
 
-      border: 1px solid rgba(0,0,0,.06);
+      border: 1px solid rgba(0, 0, 0, .06);
 
       box-shadow:
-        0 8px 25px rgba(0,0,0,.04);
+        0 8px 25px rgba(0, 0, 0, .04);
     }
 
     .location-label {
@@ -556,9 +725,67 @@
       line-height: 1.7;
     }
 
-    /* =========================
+
+    /* =========================================================
+       LOCATION WHATSAPP
+    ========================================================= */
+
+    .location-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-top: 14px;
+
+      color: var(--red);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition:
+        color .2s ease,
+        transform .2s ease;
+    }
+
+    .location-whatsapp:hover {
+      color: var(--red-dark);
+
+      transform: translateY(-1px);
+    }
+
+    .whatsapp-icon {
+      width: 27px;
+      height: 27px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--red-soft);
+    }
+
+    .whatsapp-icon svg {
+      width: 17px;
+      height: 17px;
+
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+    /* =========================================================
        DIVIDER
-    ========================= */
+    ========================================================= */
 
     .divider {
       width: 45px;
@@ -571,9 +798,10 @@
       background: var(--red);
     }
 
-    /* =========================
+
+    /* =========================================================
        FOOTER
-    ========================= */
+    ========================================================= */
 
     footer {
       width: 100%;
@@ -588,63 +816,11 @@
 
       letter-spacing: .3px;
     }
-    /* =========================
-   LOCATION WHATSAPP
-========================= */
 
-.location-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
 
-  margin-top: 14px;
-
-  color: var(--red);
-
-  font-size: 13px;
-  font-weight: 700;
-
-  text-decoration: none;
-
-  transition:
-    color .2s ease,
-    transform .2s ease;
-}
-
-.location-whatsapp:hover {
-  color: var(--red-dark);
-  transform: translateY(-1px);
-}
-
-.whatsapp-icon {
-  width: 27px;
-  height: 27px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: var(--red-soft);
-}
-
-.whatsapp-icon svg {
-  width: 17px;
-  height: 17px;
-
-  fill: none;
-
-  stroke: currentColor;
-
-  stroke-width: 1.8;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-    /* =========================
+    /* =========================================================
        MOBILE
-    ========================= */
+    ========================================================= */
 
     @media (max-width: 480px) {
 
@@ -698,9 +874,10 @@
       }
     }
 
-    /* =========================
+
+    /* =========================================================
        REDUCE MOTION
-    ========================= */
+    ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -719,9 +896,9 @@
 
   <main class="page">
 
-    <!-- =====================
+    <!-- =====================================================
          PROFILE
-    ====================== -->
+    ====================================================== -->
 
     <section class="profile">
 
@@ -748,13 +925,16 @@
     </section>
 
 
-    <!-- =====================
+    <!-- =====================================================
          LINKS
-    ====================== -->
+    ====================================================== -->
 
     <section class="links">
 
-      <!-- INSTAGRAM -->
+
+      <!-- ===================================================
+           INSTAGRAM
+      ==================================================== -->
 
       <a
         class="link-card"
@@ -766,9 +946,25 @@
         <div class="icon-box">
 
           <svg viewBox="0 0 24 24">
-            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.5" cy="6.5" r="1"></circle>
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="5"
+            ></rect>
+
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+            ></circle>
+
+            <circle
+              cx="17.5"
+              cy="6.5"
+              r="1"
+            ></circle>
           </svg>
 
         </div>
@@ -797,7 +993,9 @@
       </a>
 
 
-      <!-- WHATSAPP -->
+      <!-- ===================================================
+           WHATSAPP
+      ==================================================== -->
 
       <a
         class="link-card primary"
@@ -809,8 +1007,13 @@
         <div class="icon-box">
 
           <svg viewBox="0 0 24 24">
-            <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"></path>
-            <path d="M8.5 8.5c.3-.4.6-.4.9-.1l1 1c.2.2.2.5 0 .8l-.5.6c.8 1.3 1.5 2 2.8 2.8l.6-.5c.3-.2.6-.2.8 0l1 1c.3.3.3.6-.1.9-.5.5-1.1.7-1.7.5-2.4-.7-5.1-3.4-5.8-5.8-.2-.6 0-1.2.5-1.7Z"></path>
+            <path
+              d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"
+            ></path>
+
+            <path
+              d="M8.5 8.5c.3-.4.6-.4.9-.1l1 1c.2.2.2.5 0 .8l-.5.6c.8 1.3 1.5 2 2.8 2.8l.6-.5c.3-.2.6-.2.8 0l1 1c.3.3.3.6-.1.9-.5.5-1.1.7-1.7.5-2.4-.7-5.1-3.4-5.8-5.8-.2-.6 0-1.2.5-1.7Z"
+            ></path>
           </svg>
 
         </div>
@@ -838,46 +1041,106 @@
 
       </a>
 
-      <!-- GOOGLE REVIEW -->
 
-<a
-  class="link-card review-card"
-  href="https://search.google.com/local/writereview?placeid=ChIJ4aDPkhnoaC4R7ODnmxQ04Js"
-  target="_blank"
-  rel="noopener noreferrer"
->
+      <!-- ===================================================
+           SURVEY
+      ==================================================== -->
 
-  <div class="icon-box">
+      <a
+        class="link-card survey-card"
+        href="https://survey-kepuasan.optikamira.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
 
-    <svg viewBox="0 0 24 24">
-      <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"></path>
-    </svg>
+        <div class="icon-box">
 
-  </div>
+          <svg viewBox="0 0 24 24">
 
-  <div class="link-content">
+            <path
+              d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z"
+            ></path>
 
-    <span class="link-title">
-      Beri Kami Review 5 Bintang
-    </span>
+            <path d="M8 8h8"></path>
+            <path d="M8 12h8"></path>
+            <path d="M8 16h5"></path>
 
-    <span class="link-description">
-      Bagikan pengalaman Anda di Google
-    </span>
+          </svg>
 
-  </div>
+        </div>
 
-  <div class="arrow">
+        <div class="link-content">
 
-    <svg viewBox="0 0 24 24">
-      <path d="M5 12h14"></path>
-      <path d="m13 6 6 6-6 6"></path>
-    </svg>
+          <span class="link-title">
+            Survey Pelayanan
+          </span>
 
-  </div>
+          <span class="link-description">
+            Berikan penilaian & masukan untuk kami
+          </span>
 
-</a>
-      <!-- GOOGLE MAPS -->
+        </div>
+
+        <div class="arrow">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+
+        </div>
+
+      </a>
+
+
+      <!-- ===================================================
+           GOOGLE REVIEW
+      ==================================================== -->
+
+      <a
+        class="link-card review-card"
+        href="https://search.google.com/local/writereview?placeid=ChIJ4aDPkhnoaC4R7ODnmxQ04Js"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="icon-box">
+
+          <svg viewBox="0 0 24 24">
+            <path
+              d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+            ></path>
+          </svg>
+
+        </div>
+
+        <div class="link-content">
+
+          <span class="link-title">
+            Beri Kami Review 5 Bintang
+          </span>
+
+          <span class="link-description">
+            Bagikan pengalaman Anda di Google
+          </span>
+
+        </div>
+
+        <div class="arrow">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+
+        </div>
+
+      </a>
+
+
+      <!-- ===================================================
+           GOOGLE MAPS
+      ==================================================== -->
 
       <a
         class="link-card"
@@ -889,8 +1152,17 @@
         <div class="icon-box">
 
           <svg viewBox="0 0 24 24">
-            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
-            <circle cx="12" cy="10" r="2.5"></circle>
+
+            <path
+              d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+            ></path>
+
+            <circle
+              cx="12"
+              cy="10"
+              r="2.5"
+            ></circle>
+
           </svg>
 
         </div>
@@ -920,62 +1192,140 @@
 
     </section>
 
-
     <!-- =====================
+     PARTNERS / SERVICES
+====================== -->
+
+<section class="partners">
+
+  <div class="partners-label">
+    Melayani Peserta
+  </div>
+
+  <div class="partner-list">
+
+    <div class="partner">
+      <img
+        src="bpjs_logo.png"
+        alt="BPJS Kesehatan"
+      />
+
+      <span class="partner-name">
+        BPJS Kesehatan
+      </span>
+    </div>
+
+    <div class="partner">
+      <img
+        src="admedikalogo.png"
+        alt="AdMedika"
+      />
+
+      <span class="partner-name">
+        AdMedika
+      </span>
+    </div>
+
+    <div class="partner">
+      <img
+        src="medilink_logo.png"
+        alt="MediLink"
+      />
+
+      <span class="partner-name">
+        MediLink
+      </span>
+    </div>
+
+  </div>
+
+</section>
+    <!-- =====================================================
          LOCATION
-    ====================== -->
+    ====================================================== -->
 
     <section class="location">
 
       <div class="location-label">
 
         <svg viewBox="0 0 24 24">
-          <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
-          <circle cx="12" cy="10" r="2.5"></circle>
+
+          <path
+            d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+          ></path>
+
+          <circle
+            cx="12"
+            cy="10"
+            r="2.5"
+          ></circle>
+
         </svg>
 
         Visit Us
 
       </div>
 
+
       <p class="address">
-  Metro Indah Mall, Lantai LG A2 #26-27<br>
-  Jl. Soekarno Hatta No. 590<br>
-  Kota Bandung
-</p>
+        Metro Indah Mall, Lantai LG A2 #26-27<br>
+        Jl. Soekarno Hatta No. 590<br>
+        Kota Bandung
+      </p>
 
-<a
-  class="location-whatsapp"
-  href="https://wa.me/62811204928"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <span class="whatsapp-icon">
-    <svg viewBox="0 0 24 24">
-      <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"></path>
-      <path d="M8.5 8.5c.3-.4.6-.4.9-.1l1 1c.2.2.2.5 0 .8l-.5.6c.8 1.3 1.5 2 2.8 2.8l.6-.5c.3-.2.6-.2.8 0l1 1c.3.3.3.6-.1.9-.5.5-1.1.7-1.7.5-2.4-.7-5.1-3.4-5.8-5.8-.2-.6 0-1.2.5-1.7Z"></path>
-    </svg>
-  </span>
 
-  <span>0811-2049-28</span>
-</a>
+      <a
+        class="location-whatsapp"
+        href="https://wa.me/62811204928"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="whatsapp-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"
+            ></path>
+
+            <path
+              d="M8.5 8.5c.3-.4.6-.4.9-.1l1 1c.2.2.2.5 0 .8l-.5.6c.8 1.3 1.5 2 2.8 2.8l.6-.5c.3-.2.6-.2.8 0l1 1c.3.3.3.6-.1.9-.5.5-1.1.7-1.7.5-2.4-.7-5.1-3.4-5.8-5.8-.2-.6 0-1.2.5-1.7Z"
+            ></path>
+
+          </svg>
+
+        </span>
+
+        <span>
+          0811-2049-28
+        </span>
+
+      </a>
+
 
       <div class="divider"></div>
 
     </section>
 
 
-    <!-- =====================
+    <!-- =====================================================
          FOOTER
-    ====================== -->
+    ====================================================== -->
 
     <footer>
+
       © <span id="year"></span> Optik Amira
       · Your Vision, Our Priority
+
     </footer>
 
   </main>
 
+
+  <!-- =======================================================
+       YEAR
+  ======================================================== -->
 
   <script>
     document.getElementById("year").textContent =
